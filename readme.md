@@ -1,4 +1,7 @@
-# INSTRUCTIONS
+# Pair Programming Workshop
+
+## Instructions
+
 - Read through the methods and return only what is being asked.
 - There are no test files. So don't run RSPEC or `learn` commands
 - Instead, run `ruby hashketball.rb`
