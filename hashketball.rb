@@ -1,5 +1,3 @@
-require 'pry'
-
 def game_hash
   {
     players: [
@@ -48,51 +46,124 @@ def game_hash
 end
 
 def player_names
-  # return just the names of the players
-end
-
-def total_points_scored_of_players
-  # add all of the total points of the players 
+  arr = []
+  game_hash.each do |player, val|
+    val.each do |k, v|
+     arr << k[:name]
+    end
+  end
+  arr
 end
 
 def total_rebounds_of_players
-  # add all of the total rebounds of the players
+  total_rebounds = 0 
+  game_hash.each do |player, val|
+    val.each do |k, v|
+     total_rebounds += k[:rebounds]
+    end
+  end
+  total_rebounds
 end
 
 def total_assists
-  # add the total assists of all players
+  total_assists= 0 
+    game_hash.each do |player, val|
+      val.each do |k, v|
+        total_assists += k[:assists]
+      end
+    end
+  total_assists
 end
 
+total_assists
+
+
 def thirty_k_points_club
-  # return only the players hashes of players who scores more than 30000 points
+  arr = []
+  game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:points] > 30000
+        arr << k
+      end
+    end
+  end
+  arr
 end
 
 def ten_k_rebounds_club
-  # return only the players hashes of players who grabbed more than 100000 rebounds
+ arr = []
+  game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:rebounds] > 10000
+        arr << k
+      end
+    end
+  end
+  arr
 end
 
 def rare_stats
-  # return only the players hashes of players who has more than 30000 points, 10000 rebounds and 5000 assists
+ arr = []
+  game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:rebounds] > 10000 && k[:points] > 30000 && k[:assists] > 5000
+        arr << k
+      end
+    end
+  end
+  arr
 end
 
 def defenders
-  #  return only the player hashes of players who has more than 1000 steals and 1000 blocks
+   arr = []
+  game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:steals] > 1000 && k[:blocks] > 1000
+        arr << k
+      end
+    end
+  end
+  arr
 end
 
 def find_player_by_name(player_name)
-  # return player hash whose name matches the player_name argument
+   game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:name] == player_name
+      return k
+      end
+    end
+  end
 end
 
 def num_points_scored(player_name)
-  # return points whose name matches the player_name argument
+   game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:name] == player_name
+      return k[:points]
+      end
+    end
+  end  
 end
 
 def num_rebounds(player_name)
-  # return rebounds whose name matches the player_name argument
+   game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:name] == player_name
+      return k[:rebounds]
+      end
+    end
+  end  
 end
 
 def goat_status
-  # return the goat player
+     game_hash.each do |player, value|
+    value.each do |k, v|
+      if k[:name] == 'Michael Jordan'
+      return k
+      end
+    end
+  end  
 end
 
 # Calling methods to test 
